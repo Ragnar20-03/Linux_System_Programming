@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<fcntl.h>
+#include<unistd.h>
+
+
+#define BLOCK_SIZE 1024
+int  main(int argc  , char * argv[])
+{
+    int fdR = 0 , fdW = 0  ;
+    char Buffer[BLOCK_SIZE];
+    char rX [50];
+    char wX [50];
+    
+    scanf("%s",rX);
+    scanf("%s",wX);
+    fdR = open(rX , O_RDWR);
+    if (fdR == -1)
+    {
+        printf("Unable to open file \n");
+        return -1;
+    }
+
+    fdW = open ( wX , O_RDWR);
+    if ( fdW == -1)
+    {
+        printf("Unable to Write file \n");
+        return -1;
+    }
+    int ret = 0 ;
+    while (( ret =  read ( fdR, Buffer , BLOCK_SIZE)) !=  0 )
+    {
+        write(fdW , Buffer , ret);
+    }
+
+    close(fdR );
+    
+
+    return 0;
+}
