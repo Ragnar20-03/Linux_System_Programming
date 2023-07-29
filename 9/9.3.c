@@ -1,4 +1,4 @@
-//  Create An New Procees which Writes all file names in a file
+// Get Priority
 
 #include<fcntl.h>
 #include<unistd.h>
