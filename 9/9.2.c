@@ -1,4 +1,4 @@
-//  Create An New Procees which Writes all file names in a file
+//  Create An New Procees which  Counts Capital and Small
 
 #include<fcntl.h>
 #include<unistd.h>
@@ -12,12 +12,11 @@ int main(int argc  , char * argv[])
     int Ret = 0 ; 
     int RetX = 0 ; 
     int ExitStatus = 0 ;
-    int Capital = 0;
     
     Ret = fork();
     if ( Ret == 0 )
     {
-        execl ("./CountCapital" , "&Capital" , NULL);
+        execl ("./CountCapital" , "NULL" , NULL);
     }
     else 
     {

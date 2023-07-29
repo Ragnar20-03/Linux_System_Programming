@@ -25,7 +25,7 @@ int main(int argc  , char * argv[])
             }
         }
     }
-    *argv[0] = Capital;
+
     fd = open("Count.txt" , O_RDWR | O_APPEND);
     write(fd , &Capital , sizeof(Capital));
 
