@@ -10,19 +10,29 @@
 int main(int argc  , char * argv[])
 {
     int Ret = 0 ; 
+    int RetX = 0 ; 
     int ExitStatus = 0 ;
+    int Capital = 0;
+    
     Ret = fork();
     if ( Ret == 0 )
     {
-        execl ("./Child" , "NULL" , NULL);
+        execl ("./CountCapital" , "&Capital" , NULL);
+    }
+    else 
+    {
+        printf("%d Captail \n" , Capital);
+        wait ( &ExitStatus);
+    }
+    RetX = fork();
+    if ( Ret == 0 )
+    {
+        execl ("./CountSmall" , "NULL" , NULL);
     }
     else 
     {
         wait ( &ExitStatus);
     }
-    if ( ExitStatus == 0 )
-    {
-        printf("Succesfully Created\n");
-    }
+
     return 0;
 }

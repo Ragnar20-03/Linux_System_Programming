@@ -12,10 +12,10 @@ int main(int argc  , char * argv[])
 {
 
     struct dirent * entry = NULL;
-    struct DIR *dp = NULL;
+    DIR *dp = NULL;
 
     printf("....\n");
-    dp = opendir("home/ragnar20-03/Desktop");
+    dp = opendir("../../");
     if ( dp == NULL)
     {
         printf("Unable to Open DIrectory \n");
@@ -23,6 +23,10 @@ int main(int argc  , char * argv[])
     }
     
     int fd = creat("Demo.txt" , 0777);
+    if ( fd == -1)
+    {
+        printf("Unable to Create File\n");
+    }
 
     while ((entry  = readdir(dp)) != NULL  )
     {
